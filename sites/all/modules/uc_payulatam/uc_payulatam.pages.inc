@@ -59,7 +59,7 @@ function _uc_payulatam_response_page() {
 
   $order_status = uc_order_status_data($order->order_status, 'title');
   if ($order->order_status == 'in_checkout') {
-    $order_status .= ". " . t("Don't worry, <strong>PayU Latam</strong> hasn't contacted us with your transaction status, but they will do; it normally take some seconds.") . ' ' . t("!reload_link to check if it is updated.", array('!reload_link' => l("Reload this page", 'cart/uc_payulatam/response', array('query' => $response))));
+    $order_status .= ". " . t("Don't worry, <strong>PayU Latam</strong> hasn't contacted us with your transaction status, but they will do; it normally take some seconds.") . ' ' . t("!reload_link to check if it is updated.", array('!reload_link' => l(t("Reload this page"), 'cart/uc_payulatam/response', array('query' => $response))));
   }
 
   $variables['rows'] = array();

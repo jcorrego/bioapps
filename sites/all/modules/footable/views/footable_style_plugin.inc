@@ -48,8 +48,40 @@ class footable_style_plugin extends views_plugin_style_table {
       '#title' => t('Expandable column'),
       '#type' => 'select',
       '#options' => $field_names,
-      '#default_value' => $this->options['footable']['expand'],
+      '#default_value' => isset($this->options['footable']['expand']) ? $this->options['footable']['expand'] : '',
       '#description' => t('Select the column where a plus/minus icon should appear.'),
+    );
+
+    $form['footable']['icon'] = array(
+      '#type' => 'select',
+      '#title' => t('Toggle icon style'),
+      '#default_value' => isset($this->options['footable']['icon']) ? $this->options['footable']['icon'] : '',
+      '#options' => array(
+        '' => t('Plus/Minus'),
+        'toggle-circle' => t('Circle'),
+        'toggle-circle-filled' => t('Circle filled'),
+        'toggle-square' => t('Square'),
+        'toggle-square-filled' => t('Square filled'),
+        'toggle-arrow' => t('Arrow'),
+        'toggle-arrow-small' => t('Arrow small'),
+        'toggle-arrow-circle' => t('Arrow circle'),
+        'toggle-arrow-circle-filled' => t('Arrow circle filled'),
+        'toggle-arrow-tiny' => t('Arrow tiny'),
+        'toggle-arrow-alt' => t('Arrow alt')
+      ),
+      '#description' => t('Change the toggle icon stlye. The toggle icons are displayed using icon-fonts, which makes for easier styling to fit in with your existing theme.'),
+    );
+
+    $form['footable']['icon_size'] = array(
+      '#type' => 'select',
+      '#title' => t('Toggle icon size'),
+      '#default_value' => isset($this->options['footable']['icon_size']) ? $this->options['footable']['icon_size'] : '',
+      '#options' => array(
+        '' => t('Default'),
+        'toggle-medium' => t('Medium'),
+        'toggle-large' => t('Large')
+      ),
+      '#description' => t('Change the toggle icon size'),
     );
 
     $form['footable']['hide'] = array(
@@ -68,7 +100,7 @@ class footable_style_plugin extends views_plugin_style_table {
         '#type' => 'checkboxes',
         '#multiple' => TRUE,
         '#title' => check_plain($column_label),
-        '#default_value' => isset($this->options['footable']['hide'][$column_name]) ? $this->options['footable']['hide'][$column_name] : 0,
+        '#default_value' => isset($this->options['footable']['hide'][$column_name]) ? $this->options['footable']['hide'][$column_name] : array('phone' => 0, 'tablet' => 0),
         '#options' => array('phone' => 'Phone', 'tablet' => 'Tablet'),
       );
     }

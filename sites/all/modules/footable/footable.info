@@ -10,9 +10,9 @@ files[] = views/footable-view.tpl.php
 files[] = views/footable.view.inc
 files[] = views/footable_style_plugin.inc
 
-; Information added by Drupal.org packaging script on 2014-07-07
-version = "7.x-1.0-beta3"
+; Information added by Drupal.org packaging script on 2014-09-21
+version = "7.x-1.0-rc1"
 core = "7.x"
 project = "footable"
-datestamp = "1404714528"
+datestamp = "1411333584"
 

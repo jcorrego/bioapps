@@ -17,7 +17,7 @@
  * @ingroup views_templates
  */
 ?>
-<table <?php if ($classes): print 'class="table table-striped '. $classes . '" '; endif; ?><?php print $attributes; ?>>
+<table <?php if ($classes): print 'class="'. $classes . '" '; endif; ?><?php print $attributes; ?>>
   <?php if (!empty($title)) : ?>
     <caption><?php print $title; ?></caption>
   <?php endif; ?>
